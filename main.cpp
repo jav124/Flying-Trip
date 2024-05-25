@@ -1,3 +1,4 @@
+
 #include <SFML/Graphics.hpp> 
 #include "bird.hpp"
 using namespace sf; 
@@ -52,6 +53,29 @@ int main() {
         if (salto < 0) {
             salto += 1;
         }
-    }  
+
+        if (bird.getPosition().y + bird.getSize().y >= 450) 
+        {
+            bird.setPosition(bird.getPosition().x, 450 - bird.getSize().y);
+            gravedad = 0;
+            salto = 0;
+        }
+        
+        if (bird.getPosition().y <= 0) 
+    {
+        bird.setPosition(bird.getPosition().x, 0);
+        gravedad = 0;
+        salto = 0;
+    }
+
+        avionne.setPosition(bird.getPosition());
+        avionne.setScale(0.6f, 0.6f);
+
+        window.clear();
+        window.draw(fondo);
+        window.draw(avionne);
+        window.display();
+    }
+
     return 0;
 }
