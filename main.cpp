@@ -27,7 +27,19 @@ int main() {
     bird.setPosition(0,250);
     bird.setFillColor(Color::Black);
 
- 
+    Font font;
+    if (!font.loadFromFile("arial.ttf")) 
+    {
+        return EXIT_FAILURE;
+    }
+
+    Text game_over_text;
+    game_over_text.setFont(font);
+    game_over_text.setCharacterSize(50);
+    game_over_text.setString("Game Over");
+    game_over_text.setFillColor(Color::Red);
+    game_over_text.setPosition(window.getSize().x / 2 - game_over_text.getGlobalBounds().width / 2,
+                                window.getSize().y / 2 - game_over_text.getGlobalBounds().height / 2);
 
     while (window.isOpen())
     {
@@ -67,6 +79,18 @@ int main() {
         gravedad = 0;
         salto = 0;
     }
+
+     if (bird.getPosition().y + bird.getSize().y >= window.getSize().y) 
+        {
+            window.close();
+        }
+
+      
+        if (bird.getPosition().y <= 0) 
+        {
+            window.close();
+        }
+
 
         avionne.setPosition(bird.getPosition());
         avionne.setScale(0.6f, 0.6f);
