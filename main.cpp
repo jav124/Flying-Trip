@@ -82,13 +82,13 @@ int main() {
 
      if (bird.getPosition().y + bird.getSize().y >= window.getSize().y) 
         {
-            window.close();
+            game_over_text();
         }
 
       
         if (bird.getPosition().y <= 0) 
         {
-            window.close();
+            game_over_text();
         }
 
 
