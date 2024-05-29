@@ -11,7 +11,7 @@ int main() {
 
     
     sf::Texture pas; 
-    pas.loadFromFile("./fondo.png"); 
+    pas.loadFromFile("./fondo.jpg"); 
     sf::Sprite fondo(pas);
 
     sf::Texture av;
@@ -26,15 +26,15 @@ int main() {
     RectangleShape bird(Vector2f(32.f,32.f));
     bird.setPosition(0,250);
     bird.setFillColor(Color::Black);
-
+/* 
     Font font;
     if (!font.loadFromFile("arial.ttf")) 
     {
         return EXIT_FAILURE;
     }
-
+*/
     Text game_over_text;
-    game_over_text.setFont(font);
+    //game_over_text.setFont(font);
     game_over_text.setCharacterSize(50);
     game_over_text.setString("Game Over");
     game_over_text.setFillColor(Color::Red);
@@ -82,13 +82,13 @@ int main() {
 
      if (bird.getPosition().y + bird.getSize().y >= window.getSize().y) 
         {
-            game_over_text();
+            game_over_text;
         }
 
       
         if (bird.getPosition().y <= 0) 
         {
-            game_over_text();
+            game_over_text;
         }
 
 
