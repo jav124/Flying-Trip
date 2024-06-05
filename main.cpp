@@ -29,11 +29,11 @@ int main() {
     Obstacles obstacles;
 
     Clock clock;
-    float tiempoTranscurrido = 0;
+    float tiempo = 0;
 
     Font font;
     if (!font.loadFromFile("arial.ttf")) {
-        cerr << "Error cargando la fuente, utilizando la fuente predeterminada de SFML" << endl;
+        cerr << " " << endl;
     }
 
     while (window.isOpen()) {
@@ -51,7 +51,7 @@ int main() {
                         gameOver = false;
                         obstacles.reset();
                         clock.restart();
-                        tiempoTranscurrido = 0;
+                        tiempo = 0;
                     } else {
                         salto = -13;
                         gravedad = 2;
@@ -94,7 +94,7 @@ int main() {
 
             obstacles.update();
 
-            tiempoTranscurrido = clock.getElapsedTime().asSeconds();
+            tiempo = clock.getElapsedTime().asSeconds();
         }
 
         window.clear();
@@ -105,7 +105,7 @@ int main() {
         if (gameOver) {
             Text text;
             text.setFont(font);
-            text.setString("Tiempo: " + to_string(tiempoTranscurrido) + "s");
+            text.setString("Tiempo: " + to_string(tiempo) + "s");
             text.setCharacterSize(24);
             text.setFillColor(Color::Green);
             text.setPosition(10, 10);
@@ -117,5 +117,6 @@ int main() {
 
     return 0;
 }
+
 
 
