@@ -23,10 +23,10 @@ private:
     int obstacleHeight;
     int speed;
     int obstacleFrequency;
-    int frameCount;
-    sf::Clock clock; // Cronómetro para medir el tiempo transcurrido
-    sf::Time elapsedTime; // Tiempo transcurrido desde el inicio del juego
-    bool gameStarted; // Bandera para controlar si el juego ha comenzado
+    int frame;
+    sf::Clock clock; // cronometro 
+    sf::Time elapsedTime; // tiempo desde q empieza
+    bool gameStarted; // saber si el juego ya empezó
 };
 
 #endif
