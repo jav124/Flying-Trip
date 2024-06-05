@@ -2,15 +2,15 @@
 
 Obstacles::Obstacles() : gameStarted(false) {
     if (!texture.loadFromFile("./obstacle.png")) {
-        // Handle error
+        
     }
 
-    gap = 180;
-    obstacleWidth = 50;
+    gap = 180; 
+    obstacleWidth = 50; 
     obstacleHeight = 200;
-    speed = 5;
-    obstacleFrequency = 80;
-    frameCount = 0;
+    speed = 5; //velocidad del juego 
+    obstacleFrequency = 80; //cada cuanto sale un edifcio
+    frame = 10; 
 
     generateObstacles();
 }
@@ -32,11 +32,11 @@ void Obstacles::generateObstacles() {
 }
 
 void Obstacles::update() {
-    frameCount++;
+    frame++;
     
-    if (frameCount >= obstacleFrequency) {
+    if (frame >= obstacleFrequency) {
         generateObstacles();
-        frameCount = 0;
+        frame = 0;
     }
 
     for (auto& obstacle : obstacles) {
@@ -56,7 +56,7 @@ void Obstacles::draw(sf::RenderWindow& window) {
 
 void Obstacles::reset() {
     obstacles.clear();
-    frameCount = 0;
+    frame = 0;
     generateObstacles();
 }
 
